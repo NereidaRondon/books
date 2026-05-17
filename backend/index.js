@@ -1,12 +1,14 @@
 import express from "express"
 import mysql from "mysql2"
 import dotenv from "dotenv";
+import cors from "cors"
 
 // Load environment variables from .env file
 dotenv.config();
 
 // Create an instance of the Express application
 const app = express()
+
 
 // Create a connection to the MySQL database
 const db = mysql.createConnection({
@@ -19,6 +21,7 @@ const db = mysql.createConnection({
 
 // Middleware to parse JSON bodies
 app.use(express.json())
+app.use(cors())
 
 // Test route to verify backend is working
 app.get("/", (req, res) => {
