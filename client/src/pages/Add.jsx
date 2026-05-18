@@ -33,25 +33,25 @@ const Add = () => {
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center">
       <form className="form gap-2 d-flex flex-column justify-content-center">
-        <h1 className="mb-5">Add a Book</h1>
+        <h1 className="mb-5 page-title">Add a Book</h1>
 
         <div className="row mb-3">
-            <label for="title" className="form-label text-start">Book Title</label>
+            <label htmlFor="title" className="form-label text-start">Book Title</label>
             <input type="text" className="form-control" id="title" placeholder="what's in a name?" onChange={handleChange} name="title"></input> 
         </div>
         
         <div className="row mb-3 ">
-          <label for="description" className="form-label text-start">Description</label>
-          <input type="text" className="form-control" id="description" placeholder="tell us about it" onChange={handleChange}  name="description"></input>
+          <label htmlFor="description" className="form-label text-start">Description</label>
+          <textarea className="form-control" id="description" placeholder="tell us about it" onChange={handleChange}  name="description"></textarea>
         </div>
 
         <div className="row mb-3">
-          <label for="cover" className="form-label text-start">Cover</label>
+          <label htmlFor="cover" className="form-label text-start">Cover</label>
           <input type="text" className="form-control" id="cover" placeholder="image url" onChange={handleChange} name="cover"></input>
         </div>
 
         <div className="row mb-3 ">
-          <button type="submit" className="btn btn-info text-bold" onClick={handleClick}>Add +</button>
+          <button type="submit" className="add-btn btn text-white btn-outline-secondary fs-5" onClick={handleClick}>Add +</button>
         </div>
 
       </form>  
