@@ -64,7 +64,7 @@ const Books = () => {
                   {!book.cover && <img src={noCover} alt="" className="d-block mx-auto card-img-top py-3 w-50" />}
                   
                   <div className="card-body d-flex flex-column justify-content-between  text-start">
-                    <h4 className="card-title book-title">{book.title}</h4>
+                    <h4 className="card-title book-title text-center">{book.title}</h4>
                     <p className="card-text book-description text-start">{book.description}</p>
                     
                     
