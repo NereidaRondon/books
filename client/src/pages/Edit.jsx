@@ -16,7 +16,13 @@ const Edit = () => {
   useEffect(() => {
     const fetchbook = async () => {
       try{
-        const response = await axios.get(`http://localhost:3000/books/${id}`);
+        const token = localStorage.getItem("token");
+
+        const response = await axios.get(`http://localhost:3000/books/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
         setBook(response.data);
       } catch(err){
         console.log(err);

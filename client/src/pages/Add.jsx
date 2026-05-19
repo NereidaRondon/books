@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 
 const Add = () => {
+  const navigate = useNavigate();
 
   const [book, setBook] = useState({
     title: "",
@@ -11,7 +12,6 @@ const Add = () => {
     cover: "" 
   });
 
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setBook(prev=>({ ...prev, [e.target.name]: e.target.value }))
@@ -21,7 +21,13 @@ const Add = () => {
     e.preventDefault();
 
     try{
-      await axios.post("http://localhost:3000/books", book);
+      const token = localStorage.getItem("token");
+
+      await axios.post("http://localhost:3000/books", book, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       // navigate(-1);
       navigate("/");
 
