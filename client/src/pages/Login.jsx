@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end me-3">
         <Link to="/register" className="secondary-btn btn btn-outline-secondary text-light fw-bold mb-5">
           Register
         </Link>
@@ -98,10 +98,12 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="card shadowbg-light w-25 m-auto border border-secondary rounded-2 mt-5">
+      <div className="card shadowbg-light w-25 m-auto border border-secondary rounded-2 my-5">
         <p className="fw-bold pt-3">Give it a try:</p>
-        <p><strong>Username:</strong> Guest</p>
-        <p><strong>Password:</strong> 12345</p>  
+        <p> This app's frontend is currently deployed, but the backend is not being hosted. Full functionality, including login and book tracking, requires running the backend
+    and MySQL database locally.</p>
+        <p className="mb-2">Feel free to fork the repo and follow the setup instructions in the README to run the full app on your computer.</p>
+        <Link to="https://github.com/NereidaRondon/books.git">GitHub Repo</Link>  
       </div>
     </>
   );

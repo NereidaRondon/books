@@ -66,28 +66,106 @@ cd ../backend
 npm install
 ```
 
-5. Create a `.env` file in the backend folder and add your MySQL database credentials
+5. Create a MySQL database
+
+Open MySQL Workbench or your preferred MySQL tool and create a new database:
+
+```sql
+CREATE DATABASE lectora_books;
+```
+
+Then select the database:
+
+```sql
+USE lectora_books;
+```
+
+6. Create the required tables
+
+```sql
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE books (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  cover VARCHAR(1000),
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+```
+
+7. Optional: Add a test user
+
+```sql
+INSERT INTO users (username, password)
+VALUES ('guest', 'password1');
+```
+
+8. Create a `.env` file in the `backend` folder
+
+Inside the `backend` folder, create a file named `.env` and add your MySQL database credentials:
 
 ```env
 DB_HOST=localhost
 DB_USER=your_mysql_username
 DB_PASSWORD=your_mysql_password
-DB_NAME=your_database_name
+DB_NAME=lectora_books
 DB_PORT=3306
+JWT_SECRET=your_jwt_secret_key
 ```
 
-6. Start the backend server
+Example:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=lectora_books
+DB_PORT=3306
+JWT_SECRET=lectora_books_app_secret_key
+```
+
+9. Start the backend server
+
+From the `backend` folder, run:
+
+```bash
+npm run dev
+```
+
+Or, if using the production start script:
 
 ```bash
 npm start
 ```
 
-7. Open a second terminal and start the frontend development server
+10. Open a second terminal and start the frontend development server
+
+From the project root, run:
 
 ```bash
 cd client
 npm run dev
 ```
+
+11. Open the local frontend URL in your browser
+
+Vite will usually provide a local URL such as:
+
+```text
+http://localhost:5173
+```
+
+## Important Note
+
+This project uses a React frontend, an Express backend, and a MySQL database. The frontend alone will not provide full functionality unless the backend server is also running and connected to a MySQL database.
+
+The deployed Netlify version may display the frontend, but features such as login, adding books, editing books, deleting books, and viewing user-specific books require a running backend API and database.
 
 
 ## Skills Applied

@@ -45,7 +45,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end me-3">
         <Link to="/login" className="secondary-btn btn btn-secondary text-light fw-bold my-2">
           Login
         </Link>

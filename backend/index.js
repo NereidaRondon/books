@@ -214,7 +214,9 @@ app.delete("/books/:id", verifyToken, (req, res) => {
 });
 
 
+const PORT = process.env.PORT || 3000;
+
 // Start the server
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Connected to backend!")
 })
