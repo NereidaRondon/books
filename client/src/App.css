@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Twinkle+Star&display=swap');
 
-/* * {
-  border: 1px solid red;
-} */
-
 .twinkle-star-regular {
   font-family: "Twinkle Star", cursive;
   font-weight: 400;
@@ -21,18 +17,43 @@
   font-weight: 700;
   font-style: normal;
 }
+
+.app-logo{
+  width: 25%;
+  filter: drop-shadow(10px 10px 10px #f4e9df);
+}
+
+@media screen and (max-width: 992px) {
+ .app-logo{
+  width: 30%;
+ }
+}
+
+@media screen and (max-width: 768px) {
+ .app-logo{
+  width: 40%;
+ }
+}
+
+@media screen and (max-width: 576px) {
+ .app-logo{
+  width: 50%;
+ }
+}
+
 .app-title{
   font-size: 5rem;
   color: #41291d;
-   
-  /* color: #ccbdae; */
-  /* color: rgb(204, 189, 174);  */
-
   filter: drop-shadow(2px 2px 2px rgb(20, 12, 8));
 }
 
 .app-subtitle{
   color: rgb(1, 16, 63);
+}
+
+.books-bar{
+  background-color: rgb(65, 41, 29);
+  background: linear-gradient(10deg,rgb(1, 16, 63) 0%, rgb(65, 41, 29) 80%);
 }
 
 .page-title{
@@ -70,6 +91,12 @@
 }
 
 .done-btn,
-.add-btn {
+.add-btn,
+.main-btn {
   background-color: rgb(1, 16, 63);
+}
+
+.secondary-btn {
+  background: #41291d;
+
 }

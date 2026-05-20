@@ -6,6 +6,7 @@ import Add from './pages/Add'
 import Edit from './pages/Edit'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import logo from './assets/lectora.svg'
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -22,6 +23,12 @@ function App() {
 
   return (
     <>
+    <div className="container-fluid">
+      <h1 className="app-title twinkle-star-regular visually-hidden">Lectora</h1>
+      <h2 className="inclusive-sans-bold app-subtitle visually-hidden">Book Tracker</h2>
+
+    <img src={logo} className="app-logo" alt="" />
+
       <section id="center">
         <BrowserRouter>
           <Routes>
@@ -49,7 +56,7 @@ function App() {
         </BrowserRouter>
 
       </section>
-
+      </div>        
     </>
   )
 }

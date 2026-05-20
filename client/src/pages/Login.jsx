@@ -38,17 +38,14 @@ const Login = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <h1 className="app-title twinkle-star-regular">Lectora</h1>
-      <h2 className="inclusive-sans-bold app-subtitle">Book Tracker</h2>
-
+    <>
       <div className="d-flex justify-content-end">
-        <Link to="/register" className="btn btn-outline-secondary fw-bold my-2">
+        <Link to="/register" className="secondary-btn btn btn-outline-secondary text-light fw-bold mb-5">
           Register
         </Link>
       </div>
 
-      <div className="container d-flex justify-content-center align-items-center mt-5">
+      <div className="container d-flex justify-content-center align-items-center">
         <div className="card p-4 shadow" style={{ maxWidth: "400px", width: "100%" }}>
           <h3 className="text-center mb-4">Login</h3>
 
@@ -73,7 +70,7 @@ const Login = () => {
                 value={credentials.username}
                 onChange={handleChange}
                 required
-              />
+                />
             </div>
 
             <div className="mb-3">
@@ -90,16 +87,23 @@ const Login = () => {
                 value={credentials.password}
                 onChange={handleChange}
                 required
-              />
+                />
             </div>
 
-            <button type="submit" className="btn btn-secondary w-100 fw-bold">
+            <button type="submit" className="main-btn btn btn-secondary w-100 fw-bold main-btn fw-bold my-2">
               Login
             </button>
           </form>
+
         </div>
       </div>
-    </div>
+
+      <div className="card shadowbg-light w-25 m-auto border border-secondary rounded-2 mt-5">
+        <p className="fw-bold pt-3">Give it a try:</p>
+        <p><strong>Username:</strong> Guest</p>
+        <p><strong>Password:</strong> 12345</p>  
+      </div>
+    </>
   );
 };
 

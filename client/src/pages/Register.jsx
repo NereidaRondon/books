@@ -44,12 +44,9 @@ const Register = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <h1 className="app-title twinkle-star-regular">Lectora</h1>
-      <h2 className="inclusive-sans-bold app-subtitle">Book Tracker</h2>
-
+    <>
       <div className="d-flex justify-content-end">
-        <Link to="/login" className="btn btn-outline-secondary fw-bold my-2">
+        <Link to="/login" className="secondary-btn btn btn-secondary text-light fw-bold my-2">
           Login
         </Link>
       </div>
@@ -116,13 +113,13 @@ const Register = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-secondary w-100 fw-bold">
+            <button type="submit" className="btn btn-secondary w-100 fw-bold main-btn fw-bold my-2">
               Register
             </button>
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

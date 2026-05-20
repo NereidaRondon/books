@@ -66,72 +66,69 @@ const Books = () => {
 
  
   return (
-    <div className="container-fluid">
-      <h1 className="app-title twinkle-star-regular">Lectora</h1>
-      <h2 className="inclusive-sans-bold app-subtitle">Book Tracker</h2>
-      
+    <>
       <div className="d-flex justify-content-end">
           <Link to="/add" className="add-btn btn btn-secondary fw-bold my-2 text-decoration-none link-light">
             Add +
           </Link> 
-          <button type="button" className="btn btn-outline-secondary fw-bold my-2 ms-2"
+          <button type="button" className="secondary-btn btn btn-outline-secondary text-light fw-bold my-2 ms-2"
             onClick={handleLogout}>Logout
           </button>
       </div>
 
 
-      <h3 className="inclusive-sans d-flex justify-content-start my-5">List of books I've already read...</h3>
+      <h3 className="books-bar inclusive-sans text-light p-2 rounded d-flex justify-content-start my-5">List of books I've already read...</h3>
 
-        <div className="container books d-flex justify-content-between ">
-          <div className="row pb-3 gy-5">
+      <div className="container books d-flex justify-content-between ">
+        <div className="row pb-3 gy-5">
 
-            {books.map(book=>(
-              <div className="col-xl-4 col-md-4 col-sm-6 col-12" key={book.id}>
-                <div className="book-card card h-100" >
-                 
-                  <img src={book.cover?.trim() || noCover}
-                    alt={`${book.title} cover`} className="d-block mx-auto card-img-top py-3 w-50"
-                    onError={(e) => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = noCover;
-                    }}
-                  />
-                 
-               
-               <div className="card-body d-flex flex-column justify-content-between  text-start">
-                    <h4 className="card-title book-title text-center">{book.title}</h4>
-                    <p className="card-text book-description text-start">{book.description}</p>
+          {books.map(book=>(
+            <div className="col-xl-4 col-md-4 col-sm-6 col-12" key={book.id}>
+              <div className="book-card card h-100" >
+                
+                <img src={book.cover?.trim() || noCover}
+                  alt={`${book.title} cover`} className="d-block mx-auto card-img-top py-3 w-50"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = noCover;
+                  }}
+                />
+                
+              
+              <div className="card-body d-flex flex-column justify-content-between  text-start">
+                  <h4 className="card-title book-title text-center">{book.title}</h4>
+                  <p className="card-text book-description text-start">{book.description}</p>
+                  
+                  
+                  <div className="d-flex justify-content-end gap-3 mt-1">
+
+                      <Link 
+                        to={`/edit/${book.id}`}
+                        className="edit-btn" 
+                        aria-label={`Edit ${book.title}`}>
+                        <Edit className="icons" />
+                      </Link>
                     
-                    
-                    <div className="d-flex justify-content-end gap-3 mt-1">
 
-                        <Link 
-                          to={`/edit/${book.id}`}
-                          className="edit-btn" 
-                          aria-label={`Edit ${book.title}`}>
-                          <Edit className="icons" />
-                        </Link>
-                      
+                    <button
+                      className="delete-btn" type="button"
+                      onClick={() => handleDelete(book.id)}
+                      aria-label={`Delete ${book.title}`}>
+                        <Trash className="icons " />
+                    </button>
 
-                      <button
-                        className="delete-btn" type="button"
-                        onClick={() => handleDelete(book.id)}
-                        aria-label={`Delete ${book.title}`}>
-                          <Trash className="icons " />
-                      </button>
+                  </div>
 
-                    </div>
+                </div> 
 
-                  </div> 
+              </div>   
 
-                </div>   
+            </div>
+          ))}    
 
-              </div>
-            ))}    
-
-          </div>
         </div>
-      </div>
+      </div>  
+    </>    
   )
 }
 
